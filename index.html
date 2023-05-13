@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Nether Mail</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/beercss@3.1.3/dist/cdn/beer.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/beercss@3.1.3/dist/cdn/beer.min.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/material-dynamic-colors@0.1.7/dist/cdn/material-dynamic-colors.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js" integrity="sha512-E8QSvWZ0eCLGk4km3hxSsNmGWbLtSCSUcewDQPQWZF6pEU8GlT8a5fF32wOl1i8ftdMhssTrF/OhyGWwonTcXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.10.1/firebase-app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.10.1/firebase-database.js"></script>
+  </head>
+  <body style="color: black !important;">
+    <script>
+      function showSendForm() {
+        document.getElementById("variablediv").style.display = "none";
+        document.getElementById("sendform").style.display = "block";
+      }
+    </script>
+    <script>
+      function decryptAES(encryptedText, key) {
+        var decrypted = CryptoJS.AES.decrypt(encryptedText, key).toString(CryptoJS.enc.Utf8);
+        document.getElementById("messagetext").innerHTML = decrypted;
+      }
+    </script>
+    <div id="variablediv">
+      <header class="fill">
+        <nav> My receiver ID: <span id="myidentifier"></span><span onClick="navigator.clipboard.writeText(document.getElementById('myidentifier').innerHTML)"><span class="material-symbols-outlined">stack</span></span><span onClick="document.getElementById('qrimage').src='https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=' + document.getElementById('myidentifier').innerHTML; document.getElementById('qrimage').style.display = 'block'; $(function(){$('#qrdialog').dialog();});"><span class="material-symbols-outlined">qr_code</span></span><span onClick="replaceBtnClick()"><span class="material-symbols-outlined">refresh</span></span>
+          <div class="max"></div><button class="circle" onClick="showSendForm()"><i>add</i></button>
+        </nav>
+        <div class="medium-space"></div>
+        <h2 class="small-padding">Nether Mail</h2>
+      </header>
+      <div style="padding: 16px;" id="maillist"></div>
+    </div>
+    <div id="sendform" style="display: none;">
+      <header class='fill'>
+        <nav><button class='circle transparent' onClick='location.reload()'><i>arrow_left</i></button>
+          <div class='max'></div>
+        </nav>
+        <div class='medium-space'></div>
+        <h2 class='small-padding'>Compose message</h2>
+      </header>
+      <div style='padding: 16px;'>
+        <div class='field textarea label border'><input type='text' id='receiver' name='receiver' required></input><label>Receiver</label></div>
+        <div class='field textarea label border'><input type='text' id='subject' name='subject'></input><label>Subject</label></div>
+        <div class='field textarea label border extra'><textarea id='message' name='message' required></textarea><label>Message</label></div>
+        <div class='field textarea label border'><input type='password' id='pincode' name='pincode' placeholder="Use numbers, letters and/or special characters"></input><label>Pincode</label></div>
+        <p id="text1">For secure encryption, you should enter a safe passcode with a mix of letters, numbers and/or special characters. Remember this passcode, as neither you or the recipient can decrypt this message without it.</p>
+        <p id="text2"><b>Warning:</b> The subject field will not be encrypted. You may leave it empty if you wish.</p><br>
+        <p id="sendbutton"><button onclick='sendMessage()' class='responsive large'>Send message</button></p>
+        <p id="backbutton" style="display: none;"><button onclick='location.reload()' class='responsive large'>Back to mailbox</button></p>
+      </div>
+    </div>
+    <div id="messageview" style="display: none;">
+      <header class='fill'>
+        <nav><button class='circle transparent' onClick='location.reload()'><i>arrow_left</i></button>
+          <div class='max'></div>
+        </nav>
+        <div class='medium-space'></div>
+        <h2 class='small-padding'>View message</h2>
+      </header>
+      <div style='padding: 16px;'>
+        <p id="messagetext" style="font-size: 18px;"></p>
+      </div>
+    </div>
+    <div id="qrdialog" title="QR code" style="display: none;">
+      <p>Scan this QR code to get your ID in plain text on other devices:</p><img id="qrimage" src="http://placehold.it/150x150" />
+    </div>
+    <script src="firebase.js"></script>
+    <script src="id-generator.js"></script>
+  </body>
+</html>
