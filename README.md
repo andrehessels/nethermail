@@ -1,5 +1,5 @@
-# Nethermail
-Nethermail is a simple concept of a messaging service which encrypts your messages with AES.
+# Welcome
+Nethermail is accessible at https://andrehessels.nl/nethermail, and it's a simple concept of a messaging service which encrypts your messages with AES.
 
 ## Usage of Nethermail
 1. Make a note of your unique ID, and communicate it to whom you want.
@@ -7,8 +7,6 @@ Nethermail is a simple concept of a messaging service which encrypts your messag
 3. The recipient can click on "View message", enter in the passcode the sender made, and view your message.
 
 ## Modifying code
-If you want to use NetherMail, you can go to: https://andrehessels.nl/nethermail
-
 If you want to develop using the source code of Nethermail, use below steps:
 1. Clone this repository
 2. In firebase.js, enter in your own Firebase configuration details
