@@ -8,7 +8,7 @@ Nethermail is accessible at https://andrehessels.nl/nethermail, and it's a simpl
     - Subject - This is optional & sent without encryption
     - Message - This field will get encrypted with AES and your custom passcode
     - Passcode - For encrypting and decrypting the message
-- The recipient can click on "View message", enter in the passcode the sender made, and view your message.
+- The recipient can click on "View message", enter in the passcode the sender assigned to the message, and view your message.
 
 ## Modifying code
 If you want to develop using the source code of Nethermail, use below steps:
