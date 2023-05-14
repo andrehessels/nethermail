@@ -3,10 +3,10 @@ Nethermail is accessible at https://andrehessels.nl/nethermail, and it's a simpl
 
 ## Usage of Nethermail
 - Make a note of your unique ID, and communicate it to whoever you want.
-- When sending a message, input the following information:
+- When sending a message, you will be asked for the following information:
     - Recipient ID
     - Subject - This is optional & sent without encryption
-    - Message - AES-encryption with passcode
+    - Message - This field will get encrypted with AES and your custom passcode
     - Passcode - For encrypting and decrypting the message
 - The recipient can click on "View message", enter in the passcode the sender made, and view your message.
 
