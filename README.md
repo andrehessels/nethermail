@@ -2,13 +2,13 @@
 Nethermail is accessible at https://andrehessels.nl/nethermail, and it's a simple concept of a messaging service which encrypts your messages with AES.
 
 ## Usage of Nethermail
-1. Make a note of your unique ID, and communicate it to whom you want.
-2. When sending a message, input the following information:
+- Make a note of your unique ID, and communicate it to whoever you want.
+- When sending a message, input the following information:
     - Recipient ID
     - Subject - This is optional & sent without encryption
     - Message - AES-encryption with passcode
     - Passcode - For encrypting and decrypting the message
-3. The recipient can click on "View message", enter in the passcode the sender made, and view your message.
+- The recipient can click on "View message", enter in the passcode the sender made, and view your message.
 
 ## Modifying code
 If you want to develop using the source code of Nethermail, use below steps:
