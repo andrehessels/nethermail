@@ -18,4 +18,4 @@ If you want to develop using the source code of Nethermail, use below steps:
 You're advised to follow the license included in this repository when developing. Thanks!
 
 ## Note
-This project utilizes Google's Firebase realtime database. This isn't a privacy risk as your message is being encrypted with AES and your passcode, and then sent to the database. The passcode is deleted right after generating the hash, thus no one (not even Google) except for you knows the passcode.
+This project utilizes Google's Firebase realtime database. This isn't a privacy risk as your message is being encrypted with AES and your passcode, and then sent to the database. The passcode is deleted right after generating the AES-hash and before sending data to Firebase, which results in no one (not even Google) knowing the passcode and message contents except for you and anyone you share the passcode with.
