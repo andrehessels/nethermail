@@ -1,7 +1,12 @@
 # Nethermail
 Nethermail is a simple concept of a messaging service which encrypts your messages with AES.
 
-## Usage instructions
+## Usage of Nethermail
+1. Make a note of your unique ID, and communicate it to whom you want.
+2. When sending a message, enter in the recipients' ID, message subject (optional & sent without encryption), message (will be AES-encrypted) and passcode for encryption.
+3. The recipient can click on "View message", enter in the passcode the sender made, and view your message.
+
+## Modifying code
 If you want to use NetherMail, you can go to: https://andrehessels.nl/nethermail
 
 If you want to develop using the source code of Nethermail, use below steps:
@@ -10,3 +15,6 @@ If you want to develop using the source code of Nethermail, use below steps:
 3. Enjoy!
 
 You're advised to follow the license included in this repository when developing. Thanks!
+
+## Note
+This project utilizes Google's Firebase realtime database. This isn't a privacy risk as your message is being encrypted with AES and your passcode, and then sent to the database. The passcode is deleted right after generating the hash, thus no one (not even Google) except for you knows the passcode.
