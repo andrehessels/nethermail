@@ -14,7 +14,6 @@ Nethermail is accessible at https://andrehessels.nl/nethermail, and it's a simpl
 If you want to develop using the source code of Nethermail, use below steps:
 1. Clone this repository
 2. In firebase.js, enter in your own Firebase configuration details
-3. Enjoy!
 
 You're advised to follow the license included in this repository when developing. Thanks!
 
